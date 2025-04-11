@@ -1,8 +1,27 @@
 
 import React from "react";
-import { MapPin, Clock, Calendar } from "lucide-react";
+import { MapPin, Clock, Calendar, Navigation } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 const LocationSection = () => {
+  const addToGoogleCalendar = () => {
+    const eventTitle = "Alex and Taylor's Wedding";
+    const startDate = "20240925T160000";
+    const endDate = "20240925T220000";
+    const location = "The Bellevue Grand, 123 Evergreen Avenue, San Francisco, CA 94109";
+    const details = "We're excited to celebrate our special day with you!";
+    
+    const url = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(eventTitle)}&dates=${startDate}/${endDate}&details=${encodeURIComponent(details)}&location=${encodeURIComponent(location)}&sf=true&output=xml`;
+    
+    window.open(url, '_blank');
+  };
+
+  const getDirections = () => {
+    const destination = "The Bellevue Grand, 123 Evergreen Avenue, San Francisco, CA 94109";
+    const url = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(destination)}`;
+    window.open(url, '_blank');
+  };
+
   return (
     <section id="location" className="bg-white relative">
       <div className="section-container">
@@ -41,6 +60,26 @@ const LocationSection = () => {
                   <p className="text-gray-600">5:30 PM - Cocktail Hour</p>
                   <p className="text-gray-600">6:30 PM - Reception</p>
                 </div>
+              </div>
+
+              <div className="flex flex-wrap gap-3 pt-4">
+                <Button 
+                  onClick={addToGoogleCalendar}
+                  className="flex items-center gap-2"
+                  variant="outline"
+                >
+                  <Calendar size={16} />
+                  Add to Calendar
+                </Button>
+                
+                <Button 
+                  onClick={getDirections}
+                  className="flex items-center gap-2"
+                  variant="outline"
+                >
+                  <Navigation size={16} />
+                  Get Directions
+                </Button>
               </div>
             </div>
           </div>

@@ -1,5 +1,12 @@
 
 import React from "react";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
 const GallerySection = () => {
   const images = [
@@ -34,20 +41,35 @@ const GallerySection = () => {
       <div className="section-container">
         <h2 className="section-title">Our Journey</h2>
         
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-          {images.map((image, index) => (
-            <div 
-              key={index} 
-              className="aspect-square overflow-hidden rounded-lg shadow-md fade-in"
-              style={{ animationDelay: `${0.2 + index * 0.1}s` }}
-            >
-              <img
-                src={image.url}
-                alt={image.alt}
-                className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
-              />
+        <div className="max-w-5xl mx-auto">
+          <Carousel 
+            opts={{
+              align: "start",
+              loop: true,
+            }}
+            className="w-full"
+          >
+            <CarouselContent>
+              {images.map((image, index) => (
+                <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
+                  <div 
+                    className="aspect-square overflow-hidden rounded-lg shadow-md fade-in"
+                    style={{ animationDelay: `${0.2 + index * 0.1}s` }}
+                  >
+                    <img
+                      src={image.url}
+                      alt={image.alt}
+                      className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                    />
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <div className="flex justify-center mt-6">
+              <CarouselPrevious className="relative static left-0 translate-y-0 mr-2" />
+              <CarouselNext className="relative static right-0 translate-y-0 ml-2" />
             </div>
-          ))}
+          </Carousel>
         </div>
       </div>
     </section>

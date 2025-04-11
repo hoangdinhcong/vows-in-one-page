@@ -1,6 +1,12 @@
 
 import React, { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
+import { 
+  NavigationMenu,
+  NavigationMenuList,
+  NavigationMenuItem,
+  NavigationMenuLink
+} from "@/components/ui/navigation-menu";
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -19,29 +25,57 @@ const Navbar = () => {
       className={cn(
         "fixed w-full z-50 transition-all duration-300",
         scrolled
-          ? "py-3 bg-white bg-opacity-95 shadow-sm backdrop-blur-sm"
+          ? "py-3 bg-white/90 shadow-md backdrop-blur-sm"
           : "py-5 bg-transparent"
       )}
     >
-      <div className="max-w-6xl mx-auto px-6 flex justify-center md:justify-between items-center">
-        <div className="hidden md:block font-serif text-lg tracking-wide text-gray-800">
-          Alex & Taylor
-        </div>
-        
-        <div className="flex space-x-8">
-          <a href="#home" className="text-sm font-medium hover:text-primary-foreground">
-            Home
-          </a>
-          <a href="#location" className="text-sm font-medium hover:text-primary-foreground">
-            Location
-          </a>
-          <a href="#gallery" className="text-sm font-medium hover:text-primary-foreground">
-            Gallery
-          </a>
-          <a href="#rsvp" className="text-sm font-medium hover:text-primary-foreground">
-            RSVP
-          </a>
-        </div>
+      <div className="max-w-6xl mx-auto px-6">
+        <NavigationMenu className="mx-auto">
+          <NavigationMenuList className="flex items-center justify-center space-x-8 md:space-x-10">
+            <NavigationMenuItem>
+              <NavigationMenuLink asChild>
+                <a href="#home" className="text-sm font-medium hover:text-primary-foreground transition-colors">
+                  Home
+                </a>
+              </NavigationMenuLink>
+            </NavigationMenuItem>
+            <NavigationMenuItem>
+              <NavigationMenuLink asChild>
+                <a href="#location" className="text-sm font-medium hover:text-primary-foreground transition-colors">
+                  Location
+                </a>
+              </NavigationMenuLink>
+            </NavigationMenuItem>
+            <NavigationMenuItem className="hidden md:block">
+              <NavigationMenuLink asChild>
+                <a href="#home" className="font-serif text-lg tracking-wide text-gray-800 px-4">
+                  Alex & Taylor
+                </a>
+              </NavigationMenuLink>
+            </NavigationMenuItem>
+            <NavigationMenuItem>
+              <NavigationMenuLink asChild>
+                <a href="#gallery" className="text-sm font-medium hover:text-primary-foreground transition-colors">
+                  Gallery
+                </a>
+              </NavigationMenuLink>
+            </NavigationMenuItem>
+            <NavigationMenuItem>
+              <NavigationMenuLink asChild>
+                <a href="#gifts" className="text-sm font-medium hover:text-primary-foreground transition-colors">
+                  Gifts
+                </a>
+              </NavigationMenuLink>
+            </NavigationMenuItem>
+            <NavigationMenuItem>
+              <NavigationMenuLink asChild>
+                <a href="#rsvp" className="text-sm font-medium hover:text-primary-foreground transition-colors">
+                  RSVP
+                </a>
+              </NavigationMenuLink>
+            </NavigationMenuItem>
+          </NavigationMenuList>
+        </NavigationMenu>
       </div>
     </nav>
   );
