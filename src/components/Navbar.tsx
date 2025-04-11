@@ -30,22 +30,22 @@ const Navbar = () => {
       <div className="max-w-6xl mx-auto px-6">
         <div className="flex items-center justify-center space-x-8 md:space-x-10">
           <a href="#home" className="text-sm font-medium hover:text-primary-foreground transition-colors">
-            Home
+            Trang Chủ
           </a>
           <a href="#location" className="text-sm font-medium hover:text-primary-foreground transition-colors">
-            Location
+            Địa Điểm
           </a>
           <a href="#home" className="font-serif text-lg tracking-wide text-gray-800 px-4">
-            Alex & Taylor
+            Hoàng Công & Mỹ Duyên
           </a>
           <a href="#gallery" className="text-sm font-medium hover:text-primary-foreground transition-colors">
-            Gallery
+            Hình Ảnh
           </a>
           <a href="#gifts" className="text-sm font-medium hover:text-primary-foreground transition-colors">
-            Gifts
+            Quà Tặng
           </a>
           <a href="#rsvp" className="text-sm font-medium hover:text-primary-foreground transition-colors">
-            RSVP
+            Xác Nhận
           </a>
         </div>
       </div>
@@ -58,23 +58,23 @@ const Navbar = () => {
       <div className="flex items-center justify-between">
         <a href="#home" className="flex flex-col items-center text-gray-600 hover:text-primary-foreground transition-colors">
           <Home size={20} />
-          <span className="text-xs mt-1">Home</span>
+          <span className="text-xs mt-1">Trang Chủ</span>
         </a>
         <a href="#location" className="flex flex-col items-center text-gray-600 hover:text-primary-foreground transition-colors">
           <MapPin size={20} />
-          <span className="text-xs mt-1">Location</span>
+          <span className="text-xs mt-1">Địa Điểm</span>
         </a>
         <a href="#gallery" className="flex flex-col items-center text-gray-600 hover:text-primary-foreground transition-colors">
           <Image size={20} />
-          <span className="text-xs mt-1">Gallery</span>
+          <span className="text-xs mt-1">Hình Ảnh</span>
         </a>
         <a href="#gifts" className="flex flex-col items-center text-gray-600 hover:text-primary-foreground transition-colors">
           <Gift size={20} />
-          <span className="text-xs mt-1">Gifts</span>
+          <span className="text-xs mt-1">Quà Tặng</span>
         </a>
         <a href="#rsvp" className="flex flex-col items-center text-gray-600 hover:text-primary-foreground transition-colors">
           <Heart size={20} />
-          <span className="text-xs mt-1">RSVP</span>
+          <span className="text-xs mt-1">Xác Nhận</span>
         </a>
       </div>
     </nav>

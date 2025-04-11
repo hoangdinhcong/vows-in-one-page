@@ -15,8 +15,8 @@ const RsvpSection = () => {
     // Simulate form submission
     setTimeout(() => {
       toast({
-        title: "RSVP Submitted",
-        description: `Thank you, ${name}! Your RSVP has been received.`,
+        title: "Đã Gửi Xác Nhận",
+        description: `Cảm ơn ${name}! Chúng tôi đã nhận được xác nhận của bạn.`,
       });
       
       setName("");
@@ -28,7 +28,7 @@ const RsvpSection = () => {
   return (
     <section id="rsvp" className="bg-primary/20">
       <div className="section-container max-w-md mx-auto">
-        <h2 className="section-title">RSVP</h2>
+        <h2 className="section-title">Xác Nhận Tham Dự</h2>
         
         <div 
           className="bg-white p-8 rounded-lg shadow-sm fade-in"
@@ -37,7 +37,7 @@ const RsvpSection = () => {
           <form onSubmit={handleSubmit}>
             <div className="mb-6">
               <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
-                Your Name
+                Họ Tên
               </label>
               <input
                 type="text"
@@ -45,14 +45,14 @@ const RsvpSection = () => {
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 className="w-full p-2 border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all"
-                placeholder="Your full name"
+                placeholder="Họ và tên của bạn"
                 required
               />
             </div>
             
             <div className="mb-8">
               <p className="block text-sm font-medium text-gray-700 mb-2">
-                Will you be attending?
+                Bạn sẽ tham dự chứ?
               </p>
               
               <div className="flex space-x-4">
@@ -65,7 +65,7 @@ const RsvpSection = () => {
                       : "border-gray-200 hover:bg-gray-50"
                   }`}
                 >
-                  Yes, I'll be there
+                  Có, tôi sẽ đến
                 </button>
                 
                 <button
@@ -77,7 +77,7 @@ const RsvpSection = () => {
                       : "border-gray-200 hover:bg-gray-50"
                   }`}
                 >
-                  Sorry, I can't come
+                  Rất tiếc, tôi không thể đến
                 </button>
               </div>
             </div>
@@ -87,15 +87,15 @@ const RsvpSection = () => {
               disabled={!name || attending === null || loading}
               className="w-full button-primary disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              {loading ? "Submitting..." : "Submit RSVP"}
+              {loading ? "Đang gửi..." : "Gửi xác nhận"}
             </button>
           </form>
         </div>
 
         <div className="text-center mt-12 text-gray-600 fade-in" style={{ animationDelay: "0.4s" }}>
-          <p>Please RSVP by August 25, 2024</p>
-          <p className="mt-2">For any questions, contact us at:</p>
-          <p className="font-medium">hello@alextaylor.wedding</p>
+          <p>Vui lòng xác nhận trước ngày 1 tháng 4, 2025</p>
+          <p className="mt-2">Nếu có thắc mắc, vui lòng liên hệ:</p>
+          <p className="font-medium">hoangcong.myduyenwedding@gmail.com</p>
         </div>
       </div>
     </section>

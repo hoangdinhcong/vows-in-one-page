@@ -5,11 +5,11 @@ import { Button } from "@/components/ui/button";
 
 const LocationSection = () => {
   const addToGoogleCalendar = () => {
-    const eventTitle = "Alex and Taylor's Wedding";
-    const startDate = "20240925T160000";
-    const endDate = "20240925T220000";
-    const location = "The Bellevue Grand, 123 Evergreen Avenue, San Francisco, CA 94109";
-    const details = "We're excited to celebrate our special day with you!";
+    const eventTitle = "Lễ cưới Hoàng Công & Mỹ Duyên";
+    const startDate = "20250501T100000";
+    const endDate = "20250501T160000";
+    const location = "Trung Tâm Tiệc Cưới Nguyên Đình, Tầng 4, 461 Đ. Trương Định, Tân Mai, Hoàng Mai, Hà Nội 100000, Việt Nam";
+    const details = "Chúng tôi rất vui mừng được chào đón bạn đến dự ngày đặc biệt của chúng tôi!";
     
     const url = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(eventTitle)}&dates=${startDate}/${endDate}&details=${encodeURIComponent(details)}&location=${encodeURIComponent(location)}&sf=true&output=xml`;
     
@@ -17,7 +17,7 @@ const LocationSection = () => {
   };
 
   const getDirections = () => {
-    const destination = "The Bellevue Grand, 123 Evergreen Avenue, San Francisco, CA 94109";
+    const destination = "Trung Tâm Tiệc Cưới Nguyên Đình, 461 Đ. Trương Định, Tân Mai, Hoàng Mai, Hà Nội";
     const url = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(destination)}`;
     window.open(url, '_blank');
   };
@@ -25,7 +25,7 @@ const LocationSection = () => {
   return (
     <section id="location" className="bg-white relative">
       <div className="section-container">
-        <h2 className="section-title">Join Our Celebration</h2>
+        <h2 className="section-title">Thông Tin Lễ Cưới</h2>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div 
@@ -36,29 +36,29 @@ const LocationSection = () => {
               <div className="flex items-start">
                 <Calendar className="mr-4 text-primary-foreground flex-shrink-0" />
                 <div>
-                  <h3 className="font-medium text-lg mb-1">Date & Time</h3>
-                  <p className="text-gray-600">September 25, 2024</p>
-                  <p className="text-gray-600">4:00 PM - 10:00 PM</p>
+                  <h3 className="font-medium text-lg mb-1">Ngày & Giờ</h3>
+                  <p className="text-gray-600">Ngày 1 tháng 5, 2025</p>
+                  <p className="text-gray-600">17:00</p>
                 </div>
               </div>
               
               <div className="flex items-start">
                 <MapPin className="mr-4 text-primary-foreground flex-shrink-0" />
                 <div>
-                  <h3 className="font-medium text-lg mb-1">Venue</h3>
-                  <p className="text-gray-600">The Bellevue Grand</p>
-                  <p className="text-gray-600">123 Evergreen Avenue</p>
-                  <p className="text-gray-600">San Francisco, CA 94109</p>
+                  <h3 className="font-medium text-lg mb-1">Địa Điểm</h3>
+                  <p className="text-gray-600">Trung Tâm Tiệc Cưới Nguyên Đình</p>
+                  <p className="text-gray-600">Tầng 4, 461 Đ. Trương Định</p>
+                  <p className="text-gray-600">Tân Mai, Hoàng Mai, Hà Nội</p>
                 </div>
               </div>
               
               <div className="flex items-start">
                 <Clock className="mr-4 text-primary-foreground flex-shrink-0" />
                 <div>
-                  <h3 className="font-medium text-lg mb-1">Schedule</h3>
-                  <p className="text-gray-600">4:00 PM - Ceremony</p>
-                  <p className="text-gray-600">5:30 PM - Cocktail Hour</p>
-                  <p className="text-gray-600">6:30 PM - Reception</p>
+                  <h3 className="font-medium text-lg mb-1">Lịch Trình</h3>
+                  <p className="text-gray-600">17:00 - Đón khách</p>
+                  <p className="text-gray-600">17:30 - Lễ cưới</p>
+                  <p className="text-gray-600">18:30 - Tiệc cưới</p>
                 </div>
               </div>
 
@@ -69,7 +69,7 @@ const LocationSection = () => {
                   variant="outline"
                 >
                   <Calendar size={16} />
-                  Add to Calendar
+                  Lưu vào Lịch
                 </Button>
                 
                 <Button 
@@ -78,7 +78,7 @@ const LocationSection = () => {
                   variant="outline"
                 >
                   <Navigation size={16} />
-                  Get Directions
+                  Chỉ Đường
                 </Button>
               </div>
             </div>
@@ -89,14 +89,14 @@ const LocationSection = () => {
             style={{ animationDelay: "0.4s" }}
           >
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d100939.98555098464!2d-122.50764017948593!3d37.75781499645791!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80859a6d00690021%3A0x4a501367f076adff!2sSan%20Francisco%2C%20CA!5e0!3m2!1sen!2sus!4v1618597933159!5m2!1sen!2sus"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3725.160697366141!2d105.84622587586588!3d20.9844888941104!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ac3d675b713b%3A0xd6e0befc95dbf578!2zVHJ1bmcgVMOibSBUaeG7h2MgQ8aw4bubaSBOZ3V5w6puIMSQw6xuaA!5e0!3m2!1svi!2s!4v1713035266945!5m2!1svi!2s"
               width="100%"
               height="100%"
               style={{ border: 0 }}
               allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              title="Wedding Venue Location"
+              title="Địa điểm tổ chức lễ cưới"
             ></iframe>
           </div>
         </div>
