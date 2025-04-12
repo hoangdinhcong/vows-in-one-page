@@ -13,28 +13,28 @@ const HeroSection = () => {
         backgroundPosition: "center"
       }}
     >
-      <div className="absolute inset-0 bg-black/30"></div>
+      <div className="absolute inset-0 bg-black/50"></div>
       <div className="container mx-auto px-6 flex items-center justify-center h-full">
-        <div className="text-center px-6 py-10 fade-in z-10 bg-white/80 rounded-lg backdrop-blur-sm max-w-md mx-auto" style={{ animationDelay: "0.2s" }}>
-          <p className="font-serif text-xl mb-4 text-gray-700">Chúng tôi sắp kết hôn</p>
+        <div className="text-center px-6 py-10 fade-in z-10 bg-transparent backdrop-blur-sm max-w-md mx-auto rounded-lg" style={{ animationDelay: "0.2s" }}>
+          <p className="font-serif text-xl mb-4 text-white">Chúng tôi sắp kết hôn</p>
           
-          <h1 className="font-serif text-4xl md:text-6xl font-medium mb-6 text-gray-800">
+          <h1 className="font-serif text-4xl md:text-6xl font-medium mb-6 text-white">
             Hoàng Công & Mỹ Duyên
           </h1>
           
           <div className="flex items-center justify-center mb-8">
-            <div className="h-px w-12 bg-gray-300"></div>
-            <Heart className="mx-4 text-primary" size={24} />
-            <div className="h-px w-12 bg-gray-300"></div>
+            <div className="h-px w-12 bg-white/50"></div>
+            <Heart className="mx-4 text-white" size={24} />
+            <div className="h-px w-12 bg-white/50"></div>
           </div>
           
-          <p className="font-sans uppercase tracking-widest text-lg mb-8">
-            NGÀY 1 THÁNG 5, 2025
+          <p className="font-sans uppercase tracking-widest text-lg mb-8 text-white">
+            17:00, NGÀY 1 THÁNG 5, 2025
           </p>
           
           <a
             href="#rsvp"
-            className="button-primary inline-block"
+            className="button-primary inline-block hover:bg-white/20 border border-white text-white hover:text-white transition-all"
           >
             Xác nhận tham dự
           </a>
