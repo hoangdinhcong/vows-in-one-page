@@ -14,8 +14,8 @@ const HeroSection = () => {
       }}
     >
       <div className="absolute inset-0 bg-black/30"></div>
-      <div className="container mx-auto px-6 flex justify-end items-center h-full">
-        <div className="text-center px-6 fade-in z-10 bg-white/80 py-10 rounded-lg backdrop-blur-sm max-w-lg" style={{ animationDelay: "0.2s" }}>
+      <div className="container mx-auto px-6 flex items-center justify-center h-full">
+        <div className="text-center px-6 py-10 fade-in z-10 bg-white/80 rounded-lg backdrop-blur-sm max-w-md mx-auto" style={{ animationDelay: "0.2s" }}>
           <p className="font-serif text-xl mb-4 text-gray-700">Chúng tôi sắp kết hôn</p>
           
           <h1 className="font-serif text-4xl md:text-6xl font-medium mb-6 text-gray-800">

@@ -3,11 +3,15 @@ import React, { useState } from "react";
 import { Copy, Gift } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { toast } from "@/hooks/use-toast";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { 
+  Dialog, 
+  DialogContent, 
+  DialogHeader, 
+  DialogTitle,
+  DialogTrigger
+} from "@/components/ui/dialog";
 
 const GiftsSection = () => {
-  const [currentPerson, setCurrentPerson] = useState<"bride" | "groom" | null>(null);
-  
   const bankDetails = {
     bride: [
       { label: "Ngân Hàng", value: "Techcombank" },
@@ -51,49 +55,30 @@ const GiftsSection = () => {
           </p>
           
           <div className="flex justify-center gap-4 mb-10">
-            <Button
-              onClick={() => setCurrentPerson("bride")}
-              variant={currentPerson === "bride" ? "default" : "outline"}
-              className="flex items-center gap-2"
-            >
-              <Gift size={16} />
-              Cô Dâu
-            </Button>
-            
-            <Button
-              onClick={() => setCurrentPerson("groom")}
-              variant={currentPerson === "groom" ? "default" : "outline"}
-              className="flex items-center gap-2"
-            >
-              <Gift size={16} />
-              Chú Rể
-            </Button>
-          </div>
-
-          {currentPerson && (
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center fade-in">
-              <div className="flex justify-center">
-                <div className="bg-white p-4 rounded-lg shadow-md max-w-xs">
-                  <img 
-                    src={qrCodes[currentPerson]}
-                    alt={`QR Code ${currentPerson === "bride" ? "Cô Dâu" : "Chú Rể"}`}
-                    className="w-full rounded"
-                  />
-                  <p className="text-center text-sm text-gray-500 mt-2">
-                    Quét để chuyển khoản cho {currentPerson === "bride" ? "Cô Dâu" : "Chú Rể"}
-                  </p>
-                </div>
-              </div>
-              
-              <Card>
-                <CardHeader>
-                  <CardTitle className="text-center text-xl">
-                    Thông Tin Ngân Hàng {currentPerson === "bride" ? "Cô Dâu" : "Chú Rể"}
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <div className="space-y-4">
-                    {bankDetails[currentPerson].map((detail, index) => (
+            <Dialog>
+              <DialogTrigger asChild>
+                <Button className="flex items-center gap-2">
+                  <Gift size={16} />
+                  Cô Dâu
+                </Button>
+              </DialogTrigger>
+              <DialogContent className="sm:max-w-md">
+                <DialogHeader>
+                  <DialogTitle className="text-center">Thông Tin Ngân Hàng Cô Dâu</DialogTitle>
+                </DialogHeader>
+                <div className="flex flex-col sm:flex-row items-center gap-6 p-4">
+                  <div className="bg-white p-4 rounded-lg shadow-md">
+                    <img 
+                      src={qrCodes.bride}
+                      alt="QR Code Cô Dâu"
+                      className="w-full max-w-[200px] rounded"
+                    />
+                    <p className="text-center text-sm text-gray-500 mt-2">
+                      Quét để chuyển khoản cho Cô Dâu
+                    </p>
+                  </div>
+                  <div className="space-y-4 flex-1">
+                    {bankDetails.bride.map((detail, index) => (
                       <div key={index} className="flex justify-between items-center">
                         <div>
                           <p className="text-sm text-gray-500">{detail.label}</p>
@@ -109,16 +94,57 @@ const GiftsSection = () => {
                       </div>
                     ))}
                   </div>
-                </CardContent>
-              </Card>
-            </div>
-          )}
+                </div>
+              </DialogContent>
+            </Dialog>
+            
+            <Dialog>
+              <DialogTrigger asChild>
+                <Button className="flex items-center gap-2">
+                  <Gift size={16} />
+                  Chú Rể
+                </Button>
+              </DialogTrigger>
+              <DialogContent className="sm:max-w-md">
+                <DialogHeader>
+                  <DialogTitle className="text-center">Thông Tin Ngân Hàng Chú Rể</DialogTitle>
+                </DialogHeader>
+                <div className="flex flex-col sm:flex-row items-center gap-6 p-4">
+                  <div className="bg-white p-4 rounded-lg shadow-md">
+                    <img 
+                      src={qrCodes.groom}
+                      alt="QR Code Chú Rể"
+                      className="w-full max-w-[200px] rounded"
+                    />
+                    <p className="text-center text-sm text-gray-500 mt-2">
+                      Quét để chuyển khoản cho Chú Rể
+                    </p>
+                  </div>
+                  <div className="space-y-4 flex-1">
+                    {bankDetails.groom.map((detail, index) => (
+                      <div key={index} className="flex justify-between items-center">
+                        <div>
+                          <p className="text-sm text-gray-500">{detail.label}</p>
+                          <p className="font-medium">{detail.value}</p>
+                        </div>
+                        <Button 
+                          variant="ghost" 
+                          size="icon"
+                          onClick={() => copyToClipboard(detail.value, detail.label)}
+                        >
+                          <Copy size={16} />
+                        </Button>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </DialogContent>
+            </Dialog>
+          </div>
           
-          {!currentPerson && (
-            <div className="text-center text-gray-500 italic">
-              Vui lòng chọn "Cô Dâu" hoặc "Chú Rể" để xem thông tin chuyển khoản
-            </div>
-          )}
+          <div className="text-center text-gray-500 italic">
+            Vui lòng chọn "Cô Dâu" hoặc "Chú Rể" để xem thông tin chuyển khoản
+          </div>
         </div>
       </div>
     </section>
